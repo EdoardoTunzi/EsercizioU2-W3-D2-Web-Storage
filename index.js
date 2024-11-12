@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (savedName) {
     titleName.innerText = savedName;
   }
+  const counter = parseInt(sessionStorage.getItem("time"));
+
+  if (counter) {
+    counterShown.textContent = counter;
+  }
 });
 
 saveBtn.onclick = function () {
@@ -19,4 +24,34 @@ saveBtn.onclick = function () {
 deleteBtn.onclick = function () {
   localStorage.removeItem("name");
   titleName.innerText = "";
+};
+/*//////////////////////////// COUNTER  ///////////////////////// */
+
+const counterShown = document.getElementById("counter");
+const startBtn = document.getElementById("startbtn");
+const resetBtn = document.getElementById("resetbtn");
+let interval = null;
+let counter = parseInt(sessionStorage.getItem("time"));
+
+startBtn.onclick = function () {
+  //if per evitare che l'intervallo venga avviato più volte in parallelo, controlla che non ci sia già un intervallo attivo.
+  if (!interval) {
+    interval = setInterval(() => {
+      counter++;
+      counterShown.textContent = counter;
+      sessionStorage.setItem("time", counter);
+    }, 1000);
+  }
+};
+resetBtn.onclick = function () {
+  //per fermare il contatore
+  clearInterval(interval);
+  //resetta interval
+  interval = null;
+  //reimposto il contatore a 0
+  counter = 0;
+  //aggiorno il valore visualizzato
+  counterShown.textContent = counter;
+  //aggiorno il valore in session storage
+  sessionStorage.setItem("time", 0);
 };

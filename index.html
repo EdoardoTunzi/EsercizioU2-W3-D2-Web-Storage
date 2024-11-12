@@ -11,18 +11,26 @@
       input {
         margin-right: 10px;
       }
-      #savebtn,
-      #deletebtn {
+      .btn {
         border: 1px solid lightgray;
         border-radius: 1rem;
         padding-block: 5px;
         padding-inline: 10px;
       }
-      #savebtn {
+      #savebtn,
+      #startbtn {
         background-color: lightgreen;
       }
       #deletebtn {
         background-color: lightcoral;
+      }
+      .box {
+        border: 1px solid gray;
+        border-radius: 1rem;
+        padding-inline: 1rem;
+        padding-bottom: 2rem;
+        margin-top: 1rem;
+        max-width: 230px;
       }
     </style>
   </head>
@@ -31,10 +39,16 @@
     <form>
       <input type="text" placeholder="Insert your name" required />
       <div>
-        <button id="savebtn" type="submit">Save</button>
-        <button id="deletebtn">Delete</button>
+        <button class="btn" id="savebtn" type="submit">Save</button>
+        <button class="btn" id="deletebtn">Delete</button>
       </div>
     </form>
+
+    <div class="box">
+      <h3>Time elapsed: <span id="counter">0</span> seconds</h3>
+      <button class="btn" id="startbtn">Start counting</button>
+      <button class="btn" id="resetbtn">Reset</button>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
