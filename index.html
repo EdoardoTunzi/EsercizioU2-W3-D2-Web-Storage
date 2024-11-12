@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Storage</title>
+    <style>
+      form {
+        display: flex;
+      }
+      input {
+        margin-right: 10px;
+      }
+      #savebtn,
+      #deletebtn {
+        border: 1px solid lightgray;
+        border-radius: 1rem;
+        padding-block: 5px;
+        padding-inline: 10px;
+      }
+      #savebtn {
+        background-color: lightgreen;
+      }
+      #deletebtn {
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <h5></h5>
+    <form>
+      <input type="text" placeholder="Insert your name" required />
+      <div>
+        <button id="savebtn" type="submit">Save</button>
+        <button id="deletebtn">Delete</button>
+      </div>
+    </form>
+    <script src="./index.js"></script>
+  </body>
+</html>
