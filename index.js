@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (savedName) {
     titleName.innerText = savedName;
   }
+  //caricamento dati da session storage del valore di counter al caricamento della pagina
   let counter = parseInt(sessionStorage.getItem("time"));
 
   if (counter) {
