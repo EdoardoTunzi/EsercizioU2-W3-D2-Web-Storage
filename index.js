@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (savedName) {
     titleName.innerText = savedName;
   }
-  const counter = parseInt(sessionStorage.getItem("time"));
+  let counter = parseInt(sessionStorage.getItem("time"));
 
   if (counter) {
     counterShown.textContent = counter;
@@ -31,8 +31,9 @@ const counterShown = document.getElementById("counter");
 const startBtn = document.getElementById("startbtn");
 const resetBtn = document.getElementById("resetbtn");
 let interval = null;
-let counter = parseInt(sessionStorage.getItem("time"));
+let counter = parseInt(sessionStorage.getItem("time")) || 0; //importante settare un valore default a 0 altrimenti se non trova un valore al caricamento pagina, ritorna NaN.
 
+counterShown.textContent = counter;
 startBtn.onclick = function () {
   //if per evitare che l'intervallo venga avviato più volte in parallelo, controlla che non ci sia già un intervallo attivo.
   if (!interval) {
